@@ -99,6 +99,7 @@ class Chef
       def download_installer
         r = Chef::Resource::RemoteFile.new(rvm_installer_path, run_context)
         r.source(new_resource.installer_url)
+        r.mode('0700')
         r.run_action(:create)
         r
       end
